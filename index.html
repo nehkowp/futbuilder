@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squad Builder</title>
+</head>
+<body>
+    <div class="container">
+        <div class="menu">
+            <div class="menu-top">
+                <div class="img-website">
+                    <img src="./favicon-32x32.png">
+                </div>
+                <div class="title">
+                    <h1>Squad Builder</h1>
+                </div>
+            </div>
+            <div class="menu-content">
+                <div class="radio_buttons">
+
+                    <div class="radio">
+                        <input label="4-3-3" type="radio" id="compo-1" name="compo" value="433" checked>
+                        <input label="5-3-2" type="radio" id="compo-2" name="compo" value="532">
+                        <input label="3-4-3" type="radio" id="compo-3" name="compo" value="343">
+                        <input label="4-4-2" type="radio" id="compo-4" name="compo" value="442">
+                    </div>
+                </div>
+                    <div class="league-choice">
+                        <div class="select-league" tabindex="1">
+                            <input class="selectopt" name="league-name" type="radio" id="opt-league1" data-league="Ligue 1" checked >
+                            <label for="opt-league1" class="option">Ligue 1 </label>
+                            <input class="selectopt" name="league-name" type="radio" id="opt-league2" data-league="La Liga">
+                            <label for="opt-league2" class="option">La Liga</label>
+                            <input class="selectopt" name="league-name" type="radio" id="opt-league3" data-league="Bundesliga">
+                            <label for="opt-league3" class="option">Bundesliga</label>
+                            <input class="selectopt" name="league-name" type="radio" id="opt-league4" data-league="Premier League">
+                            <label for="opt-league4" class="option">Premier League</label>
+                            <input class="selectopt" name="league-name" type="radio" id="opt-league5" data-league="Serie A">
+                            <label for="opt-league5" class="option">Serie A</label>
+                    </div>
+                </div>
+                <div class="budget-club">
+
+                </div>
+                
+                <div class="club-choice" id="club-choice-id">
+                    <div class="select-club" tabindex="1">
+                    </div>
+                </div>
+
+            </div>
+            <div class="menu-bottom">
+                <div class="btn"><a href="#" id="send-data" >Build</a></div>
+            </div>
+        </div>
+        <div class="field">
+            <div class="forwards">
+            </div> 
+            <div class="midfields">
+            </div> 
+            <div class="defenders">
+            </div> 
+            <div class="goalkeeper">
+            </div>
+        </div>
+        <div class="search-bar" id="search-menu">
+            <div class="top-bar">
+                <input type="text" class="player_form" placeholder="Search..." id="searcharea" name="searcharea" value="" autocomplete="off">
+                <div class="choose-gender">
+                    <div class="radio">
+                        <input label="Men" type="radio" id="male" name="gender" value="male" checked>
+                        <input label="Women" type="radio" id="female" name="gender" value="female">
+                    </div>
+                </div>
+            </div>
+            <div class="players-container">
+                <div class="players-container-men"> </div>
+                <div class="players-container-women none"> </div>
+                <div class="players-container-all none"> </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="script.js" defer></script>
+</body>
+</html>

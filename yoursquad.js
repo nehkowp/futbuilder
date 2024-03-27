@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function fillBudget(){
         if(budget > 0){
-            budgetDiv.innerHTML = budget.toLocaleString('fr-FR')+ " $"
+            budgetDiv.innerHTML = parseInt(budget).toLocaleString('fr-FR')+ " $"
         }else{
             budgetDiv.innerHTML = budget.toLocaleString('fr-FR')+ " $"
             budgetDiv.classList.add("negative");

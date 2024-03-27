@@ -434,12 +434,12 @@ function sendData(){
          
               const fieldContent = document.querySelector('.field').innerHTML;
               const encodedContent = encodeURIComponent(fieldContent);
-              // const nameclub = document.querySelector('.select-club input[name="club-name"]:checked').dataset.club
-              // const encodedNameClub = encodeURIComponent(nameclub);
+              const nameclub = document.querySelector('.select-club input[name="club-name"]:checked').dataset.club
+              const encodedNameClub = encodeURIComponent(nameclub);
   
-              const destinationUrl = `yoursquad.html?content=${encodedContent}`;
+              const destinationUrl = `yoursquad.html?content=${encodedContent}&nameclub=${encodedNameClub}`;
   
-  
+              
               window.location.href = destinationUrl;
             }else{
               alert("Il manque "+(11-nbJoueurs)+" joueurs")

@@ -11,14 +11,17 @@ document.addEventListener('DOMContentLoaded', function() {
   const cardsContainer = document.querySelector(".field");
   const select_club = document.querySelector('.select-club');
   const leagueButtons = document.querySelectorAll('.select-league input[name="league-name"]');
- 
+  var players_men_names =['Kylian Mbappé Lottin', 'Erling Braut Haaland', 'Kevin De Bruyne', 'Lionel Andrés Messi Cuccittini', 'Karim Benzema', 'Robert Lewandowski', 'Thibaut Nicolas Marc Courtois', 'Harry Kane', 'Vinícius José Paixão de Oliveira Júnior', 'Alisson Ramsés Becker', 'Rodrigo Hernández Cascante', 'Rúben dos Santos Gato Alves Dias', 'Neymar da Silva Santos Júnior', 'Marc-André ter Stegen', 'Carlos Henrique Venancio Casimiro', 'Virgil van Dijk', 'Mohamed Salah Ghaly', 'Federico Santiago Valverde Dipetta', 'Victor James Osimhen', 'Ederson Santana de Moraes', 'Joshua Walter Kimmich', 'Antoine Griezmann', 'Jan Oblak', 'Bruno Miguel Borges Fernandes', 'Bernardo Mota Veiga de Carvalho e Silva', 'Martin Ødegaard', 'Frenkie de Jong', 'Gianluigi Donnarumma', 'Lautaro Javier Martínez', 'Gregor Kobel', 'Mike Maignan', 'Marcos Aoás Corrêa', 'Manuel Peter Neuer', 'Luka Modrić', '손흥민 孙兴慜', 'Jamal Musiala', 'Khvicha Kvaratskhelia', 'Pedro González López', 'Rafael Alexandre Conceição Leão', 'Jude Victor William Bellingham', 'Ronald Federico Araújo da Silva', 'Bukayo Saka', 'Matthijs de Ligt', 'Éder Gabriel Militão', 'Sandro Tonali', 'Nicolò Barella', 'Trent Alexander-Arnold', 'Christopher Nkunku', 'Ousmane Dembélé', 'Cristiano Ronaldo dos Santos Aveiro', 'Toni Kroos', 'Wojciech Tomasz Szczęsny', 'İlkay Gündoğan', 'Daniel Parejo Muñoz', 'Riyad Mahrez', 'Sadio Mané', 'João Pedro Cavaco Cancelo', 'Paulo Bruno Exequiel Dybala', "N'Golo Kanté", 'Andrew Robertson', 'Sergej Milinković-Savić', 'Rodrygo Silva de Goes', 'Florian Richard Wirtz', 'Theo Bernard François Hernández', 'Alessandro Bastoni', 'Philip Foden', 'Jules Koundé', 'Marcus Rashford', 'Diogo José Teixeira da Silva', 'Declan Rice', 'John Stones', 'Aymeric Laporte', 'André Onana', 'Kieran Trippier', 'Kevin Trapp', 'Ciro Immobile', 'Iago Aspas Juncal', 'Keylor Navas Gamboa', 'David Olatukunbo Alaba', 'Raphaël Varane', 'Damián Emiliano Martínez', 'Antonio Rüdiger', 'Jack Grealish', 'Hakan Çalhanoğlu', 'Leon Christoph Goretzka', 'Yassine Bounou', 'Thomas Partey', 'Domenico Berardi', 'Kingsley Junior Coman', 'Giovanni Di Lorenzo', 'Marcos Javier Acuña', 'Aurélien Tchouaméni', 'Ismaël Bennacer', 'Fikayo Tomori', 'Moussa Diaby', 'Gabriel Teodoro Martinelli Silva', 'Aaron Ramsdale', 'Randal Kolo Muani', 'Lisandro Martínez', 'Gleison Bremer Silva Nascimento', 'Bruno Guimarães Rodriguez Moura', 'Niklas Süle', 'Rúben Diogo da Silva Neves', 'Alejandro Remiro Gargallo', 'Gabriel dos Santos Magalhães', 'Achraf Hakimi Mouh', '김민재 金敏在', 'Reece James', 'Julian Brandt', 'Pierre-Emile Kordt Højbjerg', 'James Maddison', 'Lucas François Bernard Hernández Pi', 'Mikel Merino Zazón', 'Gabriel Fernando de Jesus', 'Raphael Dias Belloli', 'Federico Chiesa', 'Luis Fernando Díaz Marulanda', 'Thiago Emiliano da Silva', 'Yann Sommer', 'Péter Gulácsi', 'Kyle Walker', 'Thiago Alcântara do Nascimento', 'Thomas Müller', 'Chris Smalling', 'Romelu Lukaku Menama', 'Koen Casteels', 'Jorge Resurrección Merodio', 'Luis Alberto Romero Alconchel', 'Kalidou Koulibaly', 'Memphis Depay', 'Nick Pope', 'Serge David Gnabry', 'Matthias Ginter', 'Yannick Ferreira Carrasco', 'Fábio Henrique Tavares', 'Adrien Rabiot', 'Alejandro Grimaldo García', 'Rodrigo Javier De Paul', 'Stanislav Lobotka', 'Leroy Aziz Sané', 'Marcos Llorente Moreno', 'Milan Škriniar', 'Pablo Martín Páez Gavira', 'William Alain André Gabriel Saliba', 'Enzo Jeremías Fernández', 'Alphonso Boyle Davies', 'Cody Mathès Gakpo', 'Dušan Vlahović', 'Nico Schlotterbeck', 'Jeremie Agyekum Frimpong', 'Daniel Olmo Carvajal', 'Sven Botman', 'Unai Simón Mendibil', 'Pau Francisco Torres', 'Andreas Bødtker Christensen', 'José María Giménez de Vargas', 'Alex Meret', 'Gianluca Mancini', 'Konrad Laimer', 'Guido Rodríguez', 'Benjamin Pavard', 'André-Franck Zambo Anguissa', 'Lorenzo Pellegrini', 'João Maria Lobo Alves Palhinha Gonçalves', 'Mikel Oyarzabal Ugarte', 'Patrik Schick', 'Sergio Ramos García', 'Hugo Lloris', 'Mats Hummels', 'Edin Džeko', 'Ángel Fabián Di María Hernández', 'Marco Reus', 'Jordi Alba Ramos', 'Sergio Busquets i Burgos', 'Christian Dannemann Eriksen', 'Alexandre Lacazette', 'Wissam Ben Yedder', 'Francesco Acerbi', 'José Ignacio Fernández Iglesias', 'Álvaro Borja Morata Martín', 'Sergi Darder Moll', 'Raheem Sterling', 'Vilmos Tamás Orban', 'Luiz Frello Filho Jorge', 'Sébastien Haller', 'Luke Shaw', 'Gerard Moreno Balagueró', 'Emre Can', 'Filip Kostić', 'Jonas Hofmann', 'Piotr Sebastian Zieliński', 'Alessio Romagnoli', 'Marcelo Brozović', 'Rafael Alexandre Fernandes Ferreira da Silva', 'Nabil Fekir', 'Marco Asensio Willemsen', 'Borja Iglesias Quintás', 'Ronaldo Jailson Cabrais Petri', 'Eduardo Celmi Camavinga', 'Diogo Meireles Costa', 'Ferran Torres García', 'Joško Gvardiol', 'Darwin Gabriel Núñez Ribeiro', 'Robin Le Normand', 'Kai Lukas Havertz', 'Nuno Alexandre Tavares Mendes', 'Manuel Locatelli', 'Dayotchanculle Oswald Upamecano', 'Cristian Gabriel Romero', 'Jadon Sancho', 'Nahuel Molina Lucero', 'Dominik Szoboszlai', 'Orkun Kökçü', 'Ikoma Loïs Openda', 'Federico Dimarco', 'Rodrigo Bentancur Colmán', 'Noussair Mazraoui', 'Guglielmo Vicario', 'Pedro António Pereira Gonçalves', 'Viktor Tsygankov', 'Boulaye Dia', 'Jordan Pickford', 'Youri Tielemans', 'Enes Ünal', 'Lucas Torreira Di Pascua', 'Presnel Kimpembe', 'Franck Yannick Kessié', 'Donyell Malen', 'Alexis Mac Allister', 'Dominik Livaković', 'Timo Werner', 'Thomas Lemar', 'Joelinton Cassio Apolinário de Lira', 'David García Zubiría', 'Manuel Obafemi Akanji', 'Mario Hermoso Canseco', 'Youssef En-Nesyri', 'José Luis Mato Sanmartín', 'Olivier Giroud', 'Fernando Francisco Reges', 'Mario Götze', 'Nicolás Hernán Gonzalo Otamendi', 'Callum Wilson', 'Stefan de Vrij', 'Dušan Tadić', 'Anthony Lopes', 'Granit Xhaka', 'Roberto Firmino Barbosa de Oliveira', 'Íñigo Martínez Berridi', 'Stefan Savić', 'Daniel Carvajal Ramos', 'Mateo Kovačić', 'Raphaël Adelino José Guerreiro', 'Fabian Lukas Schär', 'Otávio Edmilson da Silva Monteiro', 'José Luís Gayà Peña', 'Mark Flekken', 'Vincenzo Grifo', 'Robert Andrich', 'João Mário Naval da Costa Eduardo', 'Ricardo Jorge da Luz Horta', 'Ángel Martín Correa', 'Seko Fofana', 'Jeremías Conan Ledesma', 'Mattia Zaccagni', 'Ivan Provedel', 'Ferland Mendy', 'Lucas Luciano Mantela Patrício', 'Josué Durval Chiamulera Vaz', 'Javier Galán Gil', 'Isaac Palazón Camacho', 'Édouard Mendy', 'Mehdi Taremi', 'Alejandro Balde Martínez', 'Ibrahima Konaté', 'João Félix Sequeira', 'Oihan Sancet Tirapu', 'Antony Matheus dos Santos', 'Alexander Isak', 'Samuel Chimerenka Chukwueze', 'Manuel Ugarte Ribeiro', 'Edmond Fayçal Tapsoba', 'Dejan Kulusevski', 'Davide Calabria', 'Ben Chilwell', 'Mason Mount', 'Xaver Schlager', 'Lucas Tolentino Coelho de Lima', 'Ibrahim Sangaré', 'Edson Omar Álvarez Velázquez', 'Nicolás Iván González', 'Pedro Antonio Porro Sauceda', 'Jonathan Christian David', 'Brice Samba', 'Kepa Arrizabalaga Revuelta', 'Odisseas Vlachodimos', 'Ademola Lookman', 'Norberto Bercique Gomes Betuncal', 'Bryan Cristante', 'Nathan Aké', 'Jonathan Tah', 'Allan Saint-Maximin', 'Malcom Filipe Silva de Oliveira', 'Ellyes Joris Skhiri', 'Giovani Lo Celso', 'Yeray Álvarez López', '鎌田 大地', 'Denzel Justus Morris Dumfries', 'Brais Méndez Portela', 'Arnaut Danjuma Adam Groeneveld', 'Martin Terrier', 'Almoatasembellah Ali Mohamed Al musrati', 'Kléper Laveran de Lima Ferreira', 'Francisco Guillermo Ochoa Magaña', 'Raúl Albiol Tortajada', 'Kasper Peter Schmeichel', 'Ivan Rakitić', 'Dries Mertens', 'Rui Pedro dos Santos Patrício', 'Etienne Capoue', 'Simon Thorup Kjær', 'Toby Albertine Maurits Alderweireld', 'Alexis Alejandro Sánchez Sánchez', 'Iker Muniain Goñi', 'Lukáš Hrádecký', 'Nemanja Matić', 'Bernd Leno', 'Henrikh Mkhitaryan', 'Sebastián Coates Nión', 'Lorenzo Insigne', 'Wilfried Zaha', 'Danilo Luiz da Silva', 'Lewis Dunk', 'Steven Berghuis', 'Danilo Luís Hélio Pereira', 'Geoffrey Edwin Kondogbia', 'Felipe Anderson Pereira Gomes', 'Mário Rui Silva Duarte', 'Arkadiusz Krystian Milik', 'Maximilian Arnold', 'Leandro Trossard', 'William Silva de Carvalho', 'Lucas Vázquez Iglesias', 'Frederico Rodrigues de Paula Santos', 'Gaëtan Laborde', 'Rui Tiago Dantas da Silva', 'Anderson Souza Conceição', 'Benjamin Bourigeaud', 'Gerónimo Rulli', 'Duván Esteban Zapata Banguera', 'Iñaki Williams Arthuer', 'Andrej Kramarić', 'Matteo Politano', 'Diego Carlos Santos Silva', 'Hirving Rodrigo Lozano Bahena', 'Fabián Ruiz Peña', 'Adryan Juliano Zonta Torres', 'Rosival Jailson Dourado Santos', 'Louri Adriano Bisesi Barbosa', 'Welington Kauê Dano Nascimento', 'Nailton Suzuki Ito', 'Marvin Oswaldo Rangel Azevedo', 'Miguel Ángel Almirón Rejala', 'Reinildo Isnard Mandava', 'Jonathan Clauss', 'Amir Rrahmani'];
+  var players_women_names =['Alexia Putellas Segura', 'Aitana Bonmatí Conca', 'Caroline Graham Hansen', 'Samantha May Kerr', 'María Pilar León Cebrián', 'Alexandra Morgan Carrasco', 'Ada Martine Stolsmo Hegerberg', 'Kadidiatou Diani', 'Marie-Antoinette Oda Katoto', 'Patricia Guijarro Gutiérrez', 'Sophia Olivia Smith', 'Alexandra Popp', 'Débora Cristiane de Oliveira', 'Irene Paredes Hernández', 'Wéndèleine Thérèse Renard', 'Guro Reiten', 'Claudia Christiane Endler Mutinelli', 'Ewa Pajor', 'Lena Sophie Oberdorf', 'Fridolina Rolfö', 'Lucia Roberta Tough Bronze', 'Sandra Paños García-Villamil', 'Rosemary Kathleen Lavelle', 'Lina Maria Magull', 'Bethany Jane Mead', 'Selma Bacha', 'Onema Grace Geyoro', 'Lea Schüller', 'Lauren May Hemp', 'Mallory Diane Pugh', 'Sakina Karchaoui', 'Vivianne Miedema', 'Jill Jamie Roord', 'Mary Alexandra Earps', 'Cristiana Girelli', 'Jennifer Hermoso Fuentes', 'Ashley Elizabeth Marie Lawrence', 'Lindsey Michelle Horan', 'Kim Alison Little', 'Keira Fae Walsh', 'Ona Batlle Pascual', 'Kadeisha Buchanan', 'Leah Cathrine Williamson', 'Merle Frohms', 'Khadija Monifa Shaw', 'Manuela Zinsberger', 'Kailen Mary Iacovoni Sheridan', 'Katie McCabe', 'Rebecca Elizabeth Sauerbrunn', 'Megan Anna Rapinoe', 'Kathrin-Julia Hendrich', 'Amandine Chantal Henry', 'Svenja Anette Huth', 'Rachel Ann Daly', 'Millie Bright', 'Asisat Lamina Oshoala', 'Georgia Marie Stanway', 'Chiamaka Cynthia Nnadozie', 'Trinity Rodman', 'Catarina Cantanhede Melônio Macário', 'Paulina Dudek', 'Lisa Boattin', 'Clara Matéo', 'Chloe Maggie Kelly', 'Alessia Russo', 'Bella Bixby', 'Delphine Cascarino', 'Carolyn Jane Campbell', 'Crystal Alyssia Dunn Soubrier', 'Marta Vieira da Silva', 'Amanda Ilestedt', 'Caitlin Jade Foord', 'Marta Torrejón Moya', 'Francesca Kirby', 'Sara Ilonka Däbritz', 'Eugénie Anne Claudine Le Sommer', 'Amel Majri', 'Desiree Rose Marie Scott', 'Elisabeth Petronella Lieke Martens', 'Linda Dallmann', 'Caroline Elspeth Lillias Weir', 'Ann-Katrin Berger', 'Pernille Mosegaard-Harder', 'Ashleigh Neville', 'Aubrey Kingsbury', 'Jessica Fishlock', '永里 優季', 'Claudia Pina Medina', 'Racheal Kundananji', 'Lauren James', 'Ellie Madison Carpenter', 'Erin Jacqueline Cuthbert', 'Rasheedat Busayo Ajibade', 'Klara Bühl', 'Ella Toone', 'Lara Prašnikar', 'Mathilde Bourdieu', 'Mayra Ramírez', 'Giulia Ronja Gwinn', 'Katharina Naschenweng', 'Arianna Caruso', 'Vanessa Brigitte Gilles', 'Laura Freigang', 'Griedge Yinda Colette Mbock Bathy Nka', 'Casey Grace Murphy', 'Dominique Johanna Anna Petrone Janssen', 'Felicitas Rauch', 'Dzsenifer Marozsán', "Kelley Maureen O'Hara", 'Christen Annemarie Press', 'Meghan Elizabeth Klingenberg', 'Alyssa Michele Naeher', 'Christine Margaret Sinclair', 'Kosovare Asllani', 'Magdalena Lilly Eriksson', 'Martina Rosucci', 'Barbara Bonansea', 'Stephanie-Elise Catley', 'Alex Greenwood', 'Sophie Diana Schmidt', 'Adrianna Nichole Franch', 'Sherida Spitse', 'Lynn Raenie Williams', 'Sara Doorsoun-Khajeh', 'Ludmila da Silva', 'Pauline Camille Peyraud-Magnin', 'Hannah Jayne Blundell', 'Marina Hegering', 'Tabea Waßmuth', 'Glódís Perla Viggósdóttir', 'Lia Wälti', 'Leah Galton', 'Amaiur Sarriegi Isasa', 'Frida Leonhardsen Maanum', 'María Isabel Rodríguez Rivero', 'Damaris Berta Egurrola Wienke', 'Ashley Nicole Sanchez', 'Sveindís Jane Jónsdóttir', 'Paula Fernández Jiménez', 'Manuela Vanegas', 'Ingrid Syrstad Engen', 'Sydney Lohmann', ' 遠藤 純', 'Melvine Malard', 'Nerea Eizaguirre Lasa', 'Tanja Pawollek', 'Perle Morroni', 'Sandy Baltimore', 'Alana Cook', 'Chantal Hagel', 'Théa Gréboval', '長谷川 唯', 'Katie Zelem', 'Gabriela García', 'Lineth Enid Fabienne Beerensteyn', ' 杉田 妃和', 'Alba María Redondo Ferrer', 'Nicole Billa', 'Hailie Mace', 'Alexandra Blaire Krieger', 'Eva Sofia Jakobsson', 'Sara Caroline Seger', 'Olivia Alma Charlotta Schough', 'Linda Birgitta Sembrant', 'Emilie Bosshard Haavi', 'Emily Louise van Egmond', 'Gaëtane Thiney', 'Kenza Dali', 'Anaïg Charlotte Thérese Butel', 'Rafaelle Leone Carvalho Souza', 'Emily Ann Sonnett', 'Leila Ouahabi El Ouahabi', 'Daniëlle van de Donk', 'Ève Josette Noelle Périsset', 'Carolin Simon', 'Ouleymata Sarr', 'Sofia Christine Huerta', 'Ashley Hatch', 'Ángela Sosa Martín', 'Bethany England', 'Ramona Bachmann', 'Rocky Rodríguez', 'Carson Pickett', 'Vanessa DiBernardo', 'Katie Lind', 'Ana-Maria Crnogorčević', 'Daelle Melchie Dumornay', 'Jule Brand', 'Maya Le Tissier', 'Lena Lattwein', 'Alisha Lehmann', 'Geyse da Silva Ferreira', 'Athenea del Castillo Belvide', 'Janina Minge', 'Mayumi Pacheco', 'Tatumn Milazzo', 'Élisa De Almeida', 'Gabriela Nunes da Silva', 'Andi Maureen Sullivan', 'Emily Fox', 'Synne Sofie Kinden Jensen', 'Emma Stina Blackstenius', 'Ewelina Kamczyk', 'Viola Calligaris', 'Sydney Rae Leroux Dwyer', 'Melanie Leupolz', 'Cecilia Salvai', 'Sara Gama', 'Jordan Nobbs', 'Charlotte Bilbault', 'María Guadalupe Sánchez Morales', 'Danielle Colaprico', 'Esther González Rodríguez', 'Lauren Kate Barnes', 'Abby May Erceg', 'Nikita Josephine Parris', 'María Francesca Caldentey Oliver', 'Hanna Erica Maria Glas', 'Margaret Purce', 'Verena Hanshaw', 'Daphne Corboz', 'Hayley Ladd', 'Rachel Hill', "Lo'eau LaBonta", 'Nataša Andonova'];
   placementPlayer();
   shopPlayer();
   chooseShop();
   fillSelect(document.querySelector('.select-league input[name="league-name"]:checked').dataset.league);
   showBudget(document.querySelector('.select-club input[name="club-name"]:checked').dataset.club);
-  changeClub()
-  updateRadiosB();    
+  changeClub();
+  updateRadiosB();
+  ajouterOnClick();
+
   if (!imagesLoaded) {
       loadImages();
       imagesLoaded = true; 
@@ -40,7 +43,7 @@ async function loadImages() {
               }).get();
               $.each(imageMenLinks, function(i, fileName) {
                   const imagePath = men_folder + fileName;
-                  const card_player = $("<div>").addClass("card-player").append($("<img>").attr("src", imagePath.replace(men_folder, "")));
+                  const card_player = $("<div>").addClass("card-player").append($("<img>").attr("src", imagePath.replace(men_folder, "")).attr("alt", "men"));
                   const card_box = $("<div>").addClass("card-box");
                   card_box.append(card_player);
                   men_container.append(card_box);
@@ -57,7 +60,7 @@ async function loadImages() {
           }).get();
           $.each(imageWomenLinks, function(i, fileName) {
               const imagePath = women_folder + fileName;
-              const card_player = $("<div>").addClass("card-player").append($("<img>").attr("src", imagePath.replace(women_folder, "")));
+              const card_player = $("<div>").addClass("card-player").append($("<img>").attr("src", imagePath.replace(women_folder, "")).attr("alt", "women"));
               const card_box = $("<div>").addClass("card-box");
               
               card_box.append(card_player);                
@@ -78,6 +81,7 @@ function resetShop(){
                   child.childNodes.forEach(child => {
                     if (child.firstChild && child.firstChild.classList.contains("card-player")) {
                           child.firstChild.classList.remove("choosed");
+
                     }
                 });
                 break;
@@ -87,7 +91,7 @@ function resetShop(){
 function createCard(parentElement, cardId) {
       const newCard = document.createElement('div');
       newCard.classList.add('card');
-      newCard.id = "card_click";
+      newCard.id = "card-"+cardId;
       newCard.draggable = true;
       newCard.innerHTML = `
           <div class="hexagon">
@@ -95,9 +99,9 @@ function createCard(parentElement, cardId) {
               <div class="plus-sign">
                   <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http
                   :
-                  **www.w3.org/2000/svg" xmlns:xlink="http
+                  //www.w3.org/2000/svg" xmlns:xlink="http
                   :
-                  **www.w3.org/1999/xlink" viewBox="0 0 94.49 94.49" xml:space="preserve" stroke="#ffffff" width="24" height="24">
+                  //www.w3.org/1999/xlink" viewBox="0 0 94.49 94.49" xml:space="preserve" stroke="#ffffff" width="24" height="24">
                       <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                       <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                       <g id="SVGRepo_iconCarrier">
@@ -142,7 +146,6 @@ function placementPlayer() {
     createCard(defenders,10);
     createCard(goalkeeper,11);
     onAddPlayer();
-
 
   var compo1 = document.getElementById("compo-1");
   compo1.addEventListener("change", () => {
@@ -272,7 +275,7 @@ function shopPlayer(){
               send_player_card.classList.add("selected");
               player_card.classList.add("choosed");
               const cardId = cardSelected.firstChild.id;
-              send_player_card.id = cardId;
+              send_player_card.setAttribute('data-value', cardId);
               send_player_card.setAttribute('draggable', true);
                 
               let image_url = send_player_card.querySelector('img').src;
@@ -290,6 +293,7 @@ function shopPlayer(){
               document.querySelectorAll(".card-box").forEach(cardBox => {
                 cardBox.classList.remove('shop');
               });
+              ajouterOnClick();
             }  
         }
     });
@@ -300,6 +304,7 @@ function chooseShop(){
         if (checkbox_men.checked) {
           document.querySelector(".players-container-women").classList.add("none");
           document.querySelector(".players-container-men").classList.remove("none");
+          autocomplete(inp, players_men_names);
 
         }
     });
@@ -309,6 +314,8 @@ function chooseShop(){
         if (checkbox_women.checked) {
           document.querySelector(".players-container-women").classList.remove("none");
           document.querySelector(".players-container-men").classList.add("none");
+          autocomplete(inp, players_women_names);
+
         }
     });
   }
@@ -370,9 +377,13 @@ function changeClub(){
   });
   }
 function updateRadiosB(){
+  //console.log("bjr");
+    //console.log(radioButtons);
     radioButtons.forEach(radioButton => {
+      //console.log("test2");
+
         radioButton.addEventListener('change', () => {
-            
+            //console.log("test22");
             showBudget(document.querySelector('.select-club input[name="club-name"]:checked').dataset.club);
             updateRadiosB();
             removePlayer();
@@ -410,24 +421,28 @@ function showBudget(club){
       });
   }
 function sendData(){
-const link = document.getElementById('send-data');
+        const link = document.getElementById('send-data');
 
         
         link.addEventListener('click', function(event) {
             
-            if(document.querySelectorAll(".card-player.selected").length == 11){
+            let nbJoueurs =  document.querySelectorAll(".card-player.selected").length 
+            if(nbJoueurs == 11){
+              removeAdd();
               event.preventDefault();
 
          
               const fieldContent = document.querySelector('.field').innerHTML;
               const encodedContent = encodeURIComponent(fieldContent);
-              const nameclub = document.querySelector('.select-club input[name="club-name"]:checked').dataset.club
-              const encodedNameClub = encodeURIComponent(nameclub);
+              // const nameclub = document.querySelector('.select-club input[name="club-name"]:checked').dataset.club
+              // const encodedNameClub = encodeURIComponent(nameclub);
   
-              const destinationUrl = `yoursquad.html?content=${encodedContent}&nameclub=${encodedNameClub}`;
+              const destinationUrl = `yoursquad.html?content=${encodedContent}`;
   
   
               window.location.href = destinationUrl;
+            }else{
+              alert("Il manque "+(11-nbJoueurs)+" joueurs")
             }
         });
   }
@@ -442,6 +457,7 @@ function onAddPlayer(){
                 if (e.target === addPlayer || addPlayer.contains(e.target)) {
                       isClickaddPlayer = true;
                       cardSelected = target;
+                      resetSearchShop();
                       document.querySelector(".menu").classList.add("none");
                       document.querySelector(".container").classList.add("add");
                       document.querySelectorAll(".card-box").forEach(cardBox => {
@@ -455,112 +471,288 @@ function onAddPlayer(){
               })
             });
   }
+
+
+
+
+
+
+
+
+function ajouterOnClick() {
+  let cartes_player = document.querySelector(".field").querySelectorAll(".card-player.selected");
+  for (let i = 0;i<cartes_player.length;i++){
+    cartes_player[i].addEventListener('click',selectCard);
+    cartes_player[i].addEventListener('dragstart',drag);
+    cartes_player[i].addEventListener('dragover',allowDrop);
+    cartes_player[i].addEventListener('drop',drop);
+  }
+  let cartes = document.querySelector(".field").querySelectorAll(".card");
+  for (let i = 0;i<cartes.length;i++){
+    cartes[i].addEventListener('dragover',allowDrop);
+    cartes[i].addEventListener('drop',drop);
+  }
+  
+}
+
+function selectCard(){
+  if(this.id === "clicked"){
+    const newCard = document.createElement('div');
+    newCard.classList.add('card');
+    newCard.draggable = true;
+    newCard.innerHTML = `
+        <div class="hexagon">
+            <span class="hex">&#x2B22;</span>
+            <div class="plus-sign">
+                <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 94.49 94.49" xml:space="preserve" stroke="#ffffff" width="24" height="24">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <g>
+                            <path d="M92.49,35.284H59.206V2c0-1.104-0.896-2-2-2H37.284c-1.104,0-2,0.896-2,2v33.284H2c-1.104,0-2,0.896-2,2v19.922 c0,1.104,0.896,2,2,2h33.284V92.49c0,1.104,0.896,2,2,2h19.922c1.104,0,2-0.896,2-2V59.206H92.49c1.104,0,2-0.896,2-2V37.284 C94.49,36.18,93.596,35.284,92.49,35.284z"></path>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+        </div>
+    `;
+    var cardImgToShop = this;
+    if (this.alt=="women"){
+      var containerShop = document.querySelector(".players-container-women");
+    }else{
+      var containerShop = document.querySelector(".players-container-men");
+
+    }
+    var cardsShop = containerShop.querySelectorAll(".card-player")
+    cardsShop.forEach(function(card) {
+      if(cardImgToShop.firstChild.src == card.firstChild.src){
+        card.classList.remove("choosed");
+      }
+    })
+
+
+    this.parentNode.replaceChild(newCard, this);
+    onAddPlayer();
+    ajouterOnClick();
+  }else{
+    let alreadyclicked = document.getElementById("clicked");
+    if(alreadyclicked){
+      this.removeAttribute('id');
+      alreadyclicked.removeAttribute('id');
+      first_click = alreadyclicked.innerHTML;
+      second_click = this.innerHTML;
+      
+      this.innerHTML = first_click;
+      alreadyclicked.innerHTML = second_click;
+      removeAdd();
+      onAddPlayer();
+      ajouterOnClick();
+    }else{
+      this.id = "clicked";
+    }
+
+  }
+}
+
+function removeAdd(){
+  var clickedElement = document.getElementById('clicked');
+
+  if (clickedElement) {
+      clickedElement.removeAttribute('id');
+  }
+}
+
+
+// FONCTIONS QUI PERMETTENT LE DRAG AND DROP : https://www.w3schools.com/html/html5_draganddrop.asp
+
+
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  removeAdd();
+  ev.dataTransfer.setData("text", ev.target.parentNode.dataset.value);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+
+  if(ev.target.parentElement.classList.contains('selected')){
+    drop_content =  ev.target.parentElement.innerHTML;
+    drag_content = document.querySelector('[data-value="' + data + '"]').innerHTML;
+    ev.target.parentElement.innerHTML = drag_content;
+    document.querySelector('[data-value="' + data + '"]').innerHTML = drop_content;
+  }else{
+    console.log("remplacement carte vide");
+    drop_content =  ev.target.parentElement.parentElement.parentElement.innerHTML;
+    console.log(drop_content);
+    drag_content = document.querySelector('[data-value="' + data + '"]').parentElement.innerHTML;
+    console.log(drag_content);
+    ev.target.parentElement.parentElement.parentElement.innerHTML = drag_content;
+    document.querySelector('[data-value="' + data + '"]').parentElement.innerHTML = drop_content;
+
+  }
+  onAddPlayer();
+  ajouterOnClick();
+}
+
+function autocomplete(inp, arr) {
+  /*the autocomplete function takes two arguments,
+  the text field element and an array of possible autocompleted values:*/
+  var currentFocus;
+  /*execute a function when someone writes in the text field:*/
+  inp.addEventListener("input", function(e) {
+      var a, b, i, val = this.value;
+      /*close any already open lists of autocompleted values*/
+      closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+      /*create a DIV element that will contain the items (values):*/
+      a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "autocomplete-list");
+      a.setAttribute("class", "autocomplete-items");
+      /*append the DIV element as a child of the autocomplete container:*/
+      this.parentNode.appendChild(a);
+      /*for each item in the array...*/
+      for (i = 0; i < arr.length; i++) {
+        /*check if the item starts with the same letters as the text field value:*/
+        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          /*create a DIV element for each matching element:*/
+          b = document.createElement("DIV");
+          /*make the matching letters bold:*/
+          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+          /*insert a input field that will hold the current array item's value:*/
+          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+          /*execute a function when someone clicks on the item value (DIV element):*/
+              b.addEventListener("click", function(e) {
+              /*insert the value for the autocomplete text field:*/
+              inp.value = this.getElementsByTagName("input")[0].value;
+              /*close the list of autocompleted values,
+              (or any other open lists of autocompleted values:*/
+              closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+  });
+  /*execute a function presses a key on the keyboard:*/
+  inp.addEventListener("keydown", function(e) {
+      var x = document.getElementById(this.id + "autocomplete-list");
+      if (x) x = x.getElementsByTagName("div");
+      if (e.keyCode == 40) {
+        /*If the arrow DOWN key is pressed,
+        increase the currentFocus variable:*/
+        currentFocus++;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 38) { //up
+        /*If the arrow UP key is pressed,
+        decrease the currentFocus variable:*/
+        currentFocus--;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 13) {
+        /*If the ENTER key is pressed, prevent the form from being submitted,*/
+        e.preventDefault();
+        if (currentFocus > -1) {
+          /*and simulate a click on the "active" item:*/
+          if (x) x[currentFocus].click();
+        }
+      }
+  });
+  function addActive(x) {
+    /*a function to classify an item as "active":*/
+    if (!x) return false;
+    /*start by removing the "active" class on all items:*/
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    /*add class "autocomplete-active":*/
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+    /*a function to remove the "active" class from all autocomplete items:*/
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+    /*close all autocomplete lists in the document,
+    except the one passed as an argument:*/
+    var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+      x[i].parentNode.removeChild(x[i]);
+    }
+  }
+}
+/*execute a function when someone clicks in the document:*/
+document.addEventListener("click", function (e) {
+    closeAllLists(e.target);
+});
+}
+  var inp = document.getElementById("searcharea");
+  autocomplete(inp, players_men_names);
+
+
+function resetSearchShop(){
+  if(document.querySelector(".players-container-men").classList.contains("none")){
+    var containerShop = document.querySelector(".players-container-women");
+  }else{
+    var containerShop = document.querySelector(".players-container-men");
+  }
+  var cardsShop = containerShop.querySelectorAll(".card-player")
+  cardsShop.forEach(function(card) {   
+      card.parentElement.classList.remove('none');
+  })
+}
+
+
+
+
+var submitButton = document.getElementById('submit_button');
+submitButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        resetSearchShop();
+        var searchText = document.getElementById('searcharea').value;
+        console.log('Texte entré :', searchText);
+        Papa.parse("./assets/players-2024.csv", {
+          download: true,
+          header: true,
+          complete: function(results) {
+            
+              for (let i = 0; i < results.data.length; i++) {
+                  const row = results.data[i];
+                  if (row["long_name"] === searchText) {
+                      var id_player = row["player_id"];
+                      if(document.querySelector(".players-container-men").classList.contains("none")){
+                        var containerShop = document.querySelector(".players-container-women");
+                      }else{
+                        var containerShop = document.querySelector(".players-container-men");
+                      }
+                      var cardsShop = containerShop.querySelectorAll(".card-player")
+                      cardsShop.forEach(function(card) {
+                        var srcAttribute = card.querySelector('img').src;
+                        var id = srcAttribute.match(/\/(\d+)\.png$/)[1];
+                        if(id_player != id){
+                          card.parentElement.classList.add('none');
+                        }
+                      })
+                      break; 
+                  }
+              }
+          }
+        });
+
+
+});
+
+var crossButton = document.getElementById('cross_button');
+crossButton.addEventListener('click', function(event) {
+  resetSearchShop();
 })
 
-
-
-
-
-
-
-
-
-/*
-function ajouterOnClick() {
-  let cards = document.getElementsByClassName("card-box");
-  for (let i = 0;i<cards.length;i++){
-    cards[i].addEventListener('click',swap);
-    cards[i].addEventListener('dragstart',drag);
-    cards[i].addEventListener('dragover',allowDrop);
-    cards[i].addEventListener('drop',drop);
-    cards[i].addEventListener("dragend",dropAnnule);
-  }
-}
-
-function selectCard(e) {
-  
-  let card = e.currentTarget;
-  
-  if (card.classList.contains("card")) {
-    let anciennecard = document.getElementById("card_click");
-    if (anciennecard) anciennecard.id = ""
-
-    if (card.id == "card_click") {
-      card.id = ""
-    } else {
-      card.id = "card_click"
-    }
-  }
-}
-
-function swap(e) {
-
-  let card_click = document.getElementById("card_click");
-  let card = e.currentTarget;
-
-  if (card_click == null) {
-    selectCard(e);
-    
-  } else if (card.isEqualNode(card_click) && equipe.contains(card_click)) { 
-    card.id = "";
-    if (card.classList.contains("vide")) {
-      card.parentNode.removeChild(card)
-    } else {
-      selection.prepend(card); 
-      selection.removeChild(selection.lastChild);
-    } 
-     
-  } else {
-    
-    let selection = card_click.parentNode;
-    let divClick = card.parentNode;
-    card.id = "";
-    card_click.id = "";
-    if (selection == divClick) {
-      selectCard(e);
-    } else {
-      divClick.removeChild(card);
-      card_click.classList.contains("vide") ? divClick.appendChild(card_click)  :  divClick.prepend(card_click);
-      
-      card.classList.contains("vide") ? selection.appendChild(card) : selection.prepend(card) ;
-    }
-    
-    
-  }
-  let positions = document.getElementsByClassName("card-box");
-  for (let i=0;i<positions.length;i++) {
-    if (positions[i].children.length==0) positions[i].appendChild(creercardVide());
-  }
-  ajouterOnClick();
-
-}
-
-
-ajouterOnClick()
-
-
-
-
-
-
-function drag(e) {
-  card_click = document.getElementById("card_click");
-  if (card_click !=null) card_click.id = "";
-  e.currentTarget.id = "card_click";
-}
-
-function drop(e) {
-  card_click = document.getElementById("card_click");
-  positionner(e);
-}
-
-function allowDrop(e) {
-  e.preventDefault(); 
-}
-
-function dropAnnule(e) {
-  card_click = document.getElementById("card_click");
-  if (card_click !=null) card_click.id = "";
-
-}
-*/ 
+})

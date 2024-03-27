@@ -74,6 +74,14 @@
 	border-bottom: 2px solid rgba(14, 14, 14, 0.591);
     }
 
+    .card-box.shop {
+        margin: 1%;
+        width: 25%;
+        height: 25%; 
+        /* Définir la largeur de la div */
+    }
+
+
     /* CSS rules for phones */
 }
 
@@ -151,7 +159,12 @@
     box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
 	border-bottom: 2px solid rgba(14, 14, 14, 0.591);
     }
-
+    .card-box.shop {
+        margin: 1%;
+        width: 14%;
+        height: 35%; 
+        /* Définir la largeur de la div */
+    }
 
 }
 
@@ -405,41 +418,32 @@
     object-fit: cover; 
     width: 100%; 
     height: 100%; 
-    transition: 0.3s;
+    -webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
 }
 
 .card-box.none {
     display: none;
 }
 
-/*
-.card-player img:hover {
-    object-fit: cover; 
-    width: 80%; 
-    height: 100%;
+
+.card-player img:hover{
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
 }
-*/
+
+
 
 .card-player.selected {
     width: 100%; 
-    /* Définir la largeur de la div */
     height: inherit; 
-    /* Définir la hauteur de la div */
     display: flex; 
-    /* Utiliser Flexbox pour centrer l'image */
     justify-content: center; 
-    /* Centrer horizontalement */
     align-items: center; 
-    /* Centrer verticalement */
     transition: 0.3s;
 
-}
-
-.card-box.shop {
-    margin: 1%;
-    width: 14%;
-    height: 35%; 
-    /* Définir la largeur de la div */
 }
 
 

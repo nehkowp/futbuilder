@@ -236,10 +236,6 @@ function updateBudget(value_player,mode_update){
     const budgetText = budgetDiv.innerHTML.replace(/\s/g, '');
     let budgetInteger = parseInt(budgetText.match(/-?\d+/)[0], 10);
     let newbudget;
-    
-    console.log("mode update : "+ mode_update);
-    console.log("budget : "+budgetInteger);
-    console.log("valeur player : "+Math.round(value_player))
 
     if(mode_update == 1){
       newbudget =  budgetInteger - Math.round(value_player);
@@ -247,7 +243,6 @@ function updateBudget(value_player,mode_update){
       newbudget =  budgetInteger + Math.round(value_player);
     }
 
-    console.log("new budger : "+newbudget);
     budgetDiv.textContent = newbudget.toLocaleString('fr-FR')+ " $";
   }
 function statsJoueurs(imageUrl,mode_update){
@@ -366,7 +361,6 @@ function fillSelect(league) {
 function changeClub(){
   leagueButtons.forEach(button => {
       button.addEventListener('change', function() {
-          console.log("test");
           const selectedLeague = this.dataset.league;
           
           fillSelect(selectedLeague);
@@ -430,13 +424,17 @@ function sendData(){
               removeAdd();
               event.preventDefault();
 
-         
+              const budgetDiv = document.querySelector(".budget-club");
+              const budgetText = budgetDiv.innerHTML.replace(/\s/g, '');
+              let budgetInteger = parseInt(budgetText.match(/-?\d+/)[0], 10);
+              const encodedBudget = encodeURIComponent(budgetInteger);
+
               const fieldContent = document.querySelector('.field').innerHTML;
               const encodedContent = encodeURIComponent(fieldContent);
               const nameclub = document.querySelector('.select-club input[name="club-name"]:checked').dataset.club
               const encodedNameClub = encodeURIComponent(nameclub);
   
-              const destinationUrl = `yoursquad.html?content=${encodedContent}&nameclub=${encodedNameClub}`;
+              const destinationUrl = `yoursquad.html?content=${encodedContent}&nameclub=${encodedNameClub}&budget=${encodedBudget}`;
   
               
               window.location.href = destinationUrl;
@@ -584,13 +582,10 @@ function drop(ev) {
     ev.target.parentElement.innerHTML = drag_content;
     document.querySelector('[data-value="' + data + '"]').innerHTML = drop_content;
   }else{
-    console.log("remplacement carte vide");
     drop_content =  ev.target.parentElement.parentElement.parentElement.innerHTML;
-    console.log(drop_content);
     drag_content = document.querySelector('[data-value="' + data + '"]').parentElement.innerHTML;
-    console.log(drag_content);
-    ev.target.parentElement.parentElement.parentElement.innerHTML = drag_content;
     document.querySelector('[data-value="' + data + '"]').parentElement.innerHTML = drop_content;
+    ev.target.parentElement.parentElement.parentElement.innerHTML = drag_content;
 
   }
   onAddPlayer();
@@ -717,7 +712,6 @@ submitButton.addEventListener('click', function(event) {
         event.preventDefault();
         resetSearchShop();
         var searchText = document.getElementById('searcharea').value;
-        console.log('Texte entré :', searchText);
         Papa.parse("./assets/players-2024.csv", {
           download: true,
           header: true,

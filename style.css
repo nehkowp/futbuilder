@@ -42,8 +42,6 @@
 .field {
     height: 95vh;
     width: 90%;
-    /* height: 725px;
-    width: 892px; */
     background-image: url("./assets/grass.png");
     background-position: center;
     border-radius: 20px;
@@ -101,7 +99,6 @@
 
 
     .container{
-        align-items: center;
         justify-content: center;
         display: flex;
         flex-flow: row nowrap;
@@ -151,10 +148,9 @@
     background-color: #161616;
     border-radius: 5%;
     height: 90vh;
-    margin-bottom: 5%;
+    margin-top: 2%;
     margin-right: 3%;
     margin-left: 1.5%;
-    margin-top: 5%;
     width: 25%;
     box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
 	border-bottom: 2px solid rgba(14, 14, 14, 0.591);

@@ -9,7 +9,10 @@ document.addEventListener('DOMContentLoaded', function() {
     fillRealData(nameclub);
     document.querySelector('.field').innerHTML = content;
     fillStats();
+    
 
+    /*Rempli le budget en vérifiant si le budget négatif, 
+    si le budget est négatif variable pour l'image du budget négatif*/
     function fillBudget(){
         if(budget > 0){
             budgetDiv.innerHTML = parseInt(budget).toLocaleString('fr-FR')+ " $"
@@ -19,6 +22,8 @@ document.addEventListener('DOMContentLoaded', function() {
             budgetNegative = true;
         }
     }
+
+    /*Rempli les datas réelles du club grâce au CSV selon le nom du club*/
     function fillRealData(nameclub){
         Papa.parse("./assets/teams-squad-builder-final.csv", {
           download: true,
@@ -38,6 +43,11 @@ document.addEventListener('DOMContentLoaded', function() {
           }
       });
     }
+
+    /*
+    Pour chaque postes et pour le général on fait la moyenne des cartes
+    et compare avec les stats réelles et mets les images selon le bon cas
+    */
     function fillStats(){
         const images = document.querySelectorAll('.card-player.selected');
         let moy = 0;

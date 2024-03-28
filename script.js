@@ -774,7 +774,7 @@ document.addEventListener('DOMContentLoaded', function() {
     })
   }
 
-
+/*Quitte le shop des joueurs */
   function leaveShop(){
     console.log("banger");
     var crossButton = document.getElementById('cross_button');

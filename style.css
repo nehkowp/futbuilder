@@ -84,13 +84,22 @@
         align-items: center;
         justify-content: center;
         height: 100%; 
-        width: 100%; 
+        width: 110%; 
         background-image: url("./assets/card.png");
         background-size: cover; 
         margin: 5px; 
         box-sizing: border-box;
         border-radius: 5px; 
     }
+
+    .card-box{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%; 
+        max-width: 25%;
+    }
+
 }
 
 @media screen and (min-width: 884px) {
@@ -181,7 +190,12 @@
         border-radius: 5px; 
     }
     
-
+    .card-box{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%; 
+    }
 }
 
 
@@ -248,14 +262,6 @@
     max-height: 25%;
 }
 
-
-
-.card-box{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%; 
-}
 
 
 .autocomplete {

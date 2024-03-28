@@ -83,15 +83,12 @@ document.addEventListener('DOMContentLoaded', function() {
       const children = cardsPlayerShop.children;
                 for (let i = 0; i < children.length; i++) {
                   const child = children[i];
-                  if (!child.classList.contains("none")) {
                     child.childNodes.forEach(child => {
                       if (child.firstChild && child.firstChild.classList.contains("card-player")) {
                             child.firstChild.classList.remove("choosed");
 
                       }
-                  });
-                  break;
-                  }
+                  });                  
                 }
     }
 

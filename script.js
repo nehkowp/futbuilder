@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
   autocomplete(inp, players_men_names);
   searchShop();
   resetSearch();
+  leaveShop();
 
   if (!imagesLoaded) {
       loadImages();
@@ -767,9 +768,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
   /*Reset la recherche */
   function resetSearch(){
+    var refreshButton = document.getElementById('refresh_button');
+    refreshButton.addEventListener('click', function(event) {
+      resetSearchShop();
+    })
+  }
+
+
+  function leaveShop(){
+    console.log("banger");
     var crossButton = document.getElementById('cross_button');
     crossButton.addEventListener('click', function(event) {
       resetSearchShop();
+
+      searchMenu.classList.remove("visible");
+      cardsContainer.classList.remove("none");
+      
+      document.querySelector(".menu").classList.remove("none");
+      document.querySelector(".container").classList.remove("add");
+      document.querySelectorAll(".card-box").forEach(cardBox => {
+        cardBox.classList.remove('shop');
+      });
+      ajouterOnClick();
     })
   }
 

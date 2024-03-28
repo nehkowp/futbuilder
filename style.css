@@ -308,22 +308,23 @@
     align-items: center;
   }
 
-  #submit_button, #cross_button{
-    width: 20%;
-    margin-left: 1%;
-    margin-right: 1%;
-
+  #submit_button, #cross_button, #refresh_button{
+    width: 4%;
+    min-width: 40px;
+    min-height: 30px;
+    margin-left: 0.25%;
+    margin-right: 0.25%;
     font-size: 16px;
     padding: 10px;
     border-radius: 25%;
   }
 
 #submit_button{
-    background-color: #1eff45;
+    background-color: #05f36b;
 
     }
 #submit_button:hover {
-        background: #05f36b;
+        background: #05f36cb4;
     }
 
 #cross_button{
@@ -331,8 +332,17 @@
     }
 
 #cross_button:hover{
-        background-color: rgb(246, 60, 60);
+        background-color: rgba(246, 60, 60, 0.664);
     }
+
+#refresh_button{
+        background-color: rgb(254, 207, 37);
+    }
+
+#refresh_button:hover{
+        background-color: rgba(254, 207, 37, 0.739);
+    }
+
 
 
 .search-bar {
@@ -364,7 +374,7 @@
     border: 0;
     border-bottom: 0;
     margin: 10px;
-    width: 85%;
+    width: 95%;
     border-radius: 6px ;
 }
 
@@ -653,8 +663,10 @@
 } 
 
 .top-bar {
+    margin-left: 5%;
+    width: 90%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     flex-direction: row;
     align-items: center;
 }
@@ -903,6 +915,3 @@
     outline: var(--t) solid #ff15116b; /* the color here */
     outline-offset: calc(var(--g)/-0.5);
   }
-
-
-  

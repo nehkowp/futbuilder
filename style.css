@@ -19,7 +19,7 @@
         align-items: center;
         justify-content: center;
         display: flex;
-        flex-flow: column nowrap;
+        flex-flow: column-reverse nowrap;
     }
 
     .menu{
